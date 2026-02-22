@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blackjack Simulator</title>
+  <link rel="stylesheet" href="style.css?v=20260221-5">
+</head>
+<body>
+  <div id="main-menu">
+    <div class="menu-shell">
+      <div class="menu-title">Card Counter Blackjack</div>
+      <div class="menu-subtitle">Choose your mode</div>
+      <div class="mode-grid">
+        <button id="mode-sim-btn" class="mode-btn">
+          <span class="mode-name">Simulation</span>
+          <span class="mode-desc">5 bots autoplay with full strategy + count deviations</span>
+        </button>
+        <button id="mode-manual-btn" class="mode-btn">
+          <span class="mode-name">Manual Play</span>
+          <span class="mode-desc">You are Player 1 + 4 bots, with live optimal advice</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="app" class="hidden">
+    <header class="topbar">
+      <div class="title">Card Counter Blackjack</div>
+      <div class="counts">
+        <span id="game-mode-label">Mode: Simulation</span>
+        <span id="shoe-info">Shoe: 6 decks</span>
+        <span id="cards-left">Cards left: 312</span>
+        <span id="running-count">Running: 0</span>
+        <span id="true-count">True: 0</span>
+        <span id="bet-multiplier">Bet Multiplier: 1x</span>
+        <span id="round-number">Round: 0</span>
+        <span id="profit-total">Profit: 0</span>
+        <span id="hands-played">Hands: 0</span>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="controls">
+        <div class="control-group">
+          <label for="sim-speed">Speed</label>
+          <select id="sim-speed">
+            <option value="1">1 - Leisurely</option>
+            <option value="2">2</option>
+            <option value="3" selected>3</option>
+            <option value="4">4</option>
+            <option value="5">5 - Rapid</option>
+          </select>
+        </div>
+
+        <div class="control-group">
+          <label for="base-bet">Bet per hand (min 25)</label>
+          <input type="number" id="base-bet" min="25" value="25">
+        </div>
+
+        <div class="control-group buttons vertical">
+          <button id="auto-btn">Start Auto</button>
+          <button id="stop-btn" class="danger">Stop</button>
+          <button id="change-music-btn">Change Music</button>
+          <button id="save-log-btn">Save Log</button>
+        </div>
+
+        <div id="player-actions" class="control-group hidden">
+          <label>Player 1 Actions</label>
+          <div class="player-bet-row">
+            <button id="bet-minus-btn">- Bet</button>
+            <span id="manual-bet-display">Bet: 25</span>
+            <button id="bet-plus-btn">+ Bet</button>
+          </div>
+          <button id="submit-bet-btn">Submit Bet</button>
+          <div class="player-action-grid">
+            <button id="act-hit-btn" data-action="H">Hit</button>
+            <button id="act-stand-btn" data-action="S">Stand</button>
+            <button id="act-double-btn" data-action="D">Double</button>
+            <button id="act-split-btn" data-action="P">Split</button>
+            <button id="act-surrender-btn" data-action="SU">Surrender</button>
+          </div>
+        </div>
+      </aside>
+
+      <section id="table"></section>
+
+      <aside id="action-panel">
+        <div class="panel-title">Action Log</div>
+        <div id="log"></div>
+      </aside>
+    </div>
+  </div>
+  <div id="whale-overlay" aria-hidden="true" hidden>
+    <img id="whale-image" src="whale_pic.jpg" alt="Whale alert">
+  </div>
+
+  <script type="module" src="app.js?v=20260221-16"></script>
+</body>
+</html>
