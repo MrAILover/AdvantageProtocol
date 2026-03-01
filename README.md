@@ -26,7 +26,7 @@ This project runs entirely in the browser with a simple static server. It includ
 ### 1. Clone
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/The-ITUnicorn/AdvantageProtocol.git
 cd AdvantageProtocol
 ```
 
